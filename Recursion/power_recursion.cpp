@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+//function to calculate power using recursion
 int power(int n, int m){
     if(n==0)
     return(1);
@@ -8,7 +9,7 @@ int power(int n, int m){
     else
     return m*power(m*m,(n-1)/2);
 }
-
+//function to calculate power using iteration
 int ipower(int m,int n){
 
   int num=m;
