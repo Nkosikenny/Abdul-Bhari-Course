@@ -24,11 +24,43 @@ void Append(struct Array *arr, int x)
       arr->A[arr->length++]=x;
 }
 
+//function to insert element at given index
+void Insert(struct Array *arr, int index, int x)
+{
+    //condition to check if index is valid and then insert element at given index
+    int i;
+
+    if(index>=0 && index<=arr->length)
+    {
+        for(i=arr->length;i>index;i--)
+        arr->A[i]=arr->A[i-1];
+        arr->A[index]=x;
+        arr->length++;
+    }
+}
+
+//function to delete an element at given index
+int Delete(struct Array *arr, int index)
+{
+    int x=0;
+    int i;
+    if(index>=0 && index<arr->length)
+    {
+        x=arr->A[index];
+        for(i=index; i<arr->length-1;i++)
+        arr->A[i]=arr->A[i+1];
+        arr->length--;
+        return x;
+    }
+
+    return 0;
+}
+
 int main(){
 
     struct Array arr={{2,3,4,5,6},10,5};
 
-    Append(&arr,10);
+    Delete(&arr,0);
     display(arr);
 
 
