@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 struct Array{
-    int *A;
+    int A[10];
     int size;
     int length;
 };
@@ -16,24 +16,19 @@ void display(struct Array arr)
     }
 }
 
+//function to add elements at the end of an array
+void Append(struct Array *arr, int x)
+{
+    //condition to check if array has space,if true then add element
+    if(arr->length<arr->size)
+      arr->A[arr->length++]=x;
+}
+
 int main(){
 
-    struct Array arr;
-    int n,i;
-    printf("Enter size of array");
-    scanf("%d", &arr.size);
-    arr.A=(int *)malloc(arr.size*sizeof(int));
-    arr.length=0;
-    
-    printf("enter how many numbers");
-    scanf("%d", &n);
+    struct Array arr={{2,3,4,5,6},10,5};
 
-    printf("Enter all elements\n");
-    for(i=0; i<n; i++){
-        scanf("%d", &arr.A[i]);
-        arr.length=n;
-  }
-
+    Append(&arr,10);
     display(arr);
 
 
